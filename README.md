@@ -257,9 +257,59 @@ This will show you the difference between the working directory and your local r
 PHEW THAT WAS A LOT, LETS REVIEW SOME STUFF
 ![](img/git-model.png)
 
-![](img/git-model2.png)
+```shell
+git init
+```
+Creates an empty git repository and reinitializes an existing one
 
-## 8. If you really screw up... 
+```shell
+git clone
+```
+Clone a repository into a new directory
+
+```shell
+git pull
+```
+Fetch from and integrate with another repository or a local branch
+
+```shell
+git fetch
+```
+Download objects and refs from another repository
+
+```shell
+git add 
+```
+Add file contents to the index 
+
+```shell
+git commit 
+```
+Record changes to the repository
+
+```shell
+git push 
+```
+Update remote repos
+
+```shell
+git checkout head 
+```
+checkout to the HEAD
+
+```shell
+git checkout [branch]
+```
+
+checkout to a different branch 
+
+```shell
+git diff
+```
+Show changes between commits, commit and working tree, etc
+
+
+## 8. If you really screw up... - **git reset and stash**
 
 ```shell
 git reset
@@ -283,3 +333,10 @@ When u want to apply the stash `git stash apply`
 
 Drop all the stash after you used it, `git stash clear`
 If you want to specify which stash to drop then, `git stash drop@{index}` from `git stash list`.
+
+
+## References 
+
+https://git-scm.com 
+https://codeburst.io/so-wtf-is-git-fa7daa0e0271
+https://github.com/noshp/gitgud
