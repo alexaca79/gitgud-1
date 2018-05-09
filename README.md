@@ -1,10 +1,10 @@
-# Wtf is git
-
+# So, you think you want to git
 
 
 So yall here to learn about this thing called git... 
 
 Totally stolen from this guys [blog](https://codeburst.io/so-wtf-is-git-fa7daa0e0271).
+Totally forked from [noshp](https://github.com/noshp/gitgud) 
 
 ## What is git
 
@@ -13,7 +13,9 @@ Git is a version control system used to track changes on files on your computer.
 This is a very oversimplied image of how the basics of git works.
 ![](img/git-basics.png)
 
-But this base model is where we will start.
+The first line is kinda how most of the world does version control and collaboration.
+The second line is kinda how git works. 
+This base model is where we will start.
 
 ## Let's start
 
@@ -25,9 +27,9 @@ For Windows, install git Bash [here] (https://git-scm.com/download/win)
 
 First thing, create a folder for the project which your are going to work off.
 
-Open up your terminal (for Windows it will be called git bash) and navigate to that folder.
+Open up your terminal (for Windows it will be called git Bash) and navigate to that folder.
 
-### 1. Let's Start - git init and status 
+## 1. Let's Start - **git init and status** 
 
 We are going to use our first git command.
 
@@ -53,7 +55,7 @@ No commits yet
 nothing to commit (create/copy files and use "git add" to track)
 ```
 
-## 2.Adding new things! - git add  
+## 2.Adding new things! - **git add**  
 
 Cool lets change something, lets add a file in your empty folder name it README.md.
 Using your favorite text editor copy add this line in there:
@@ -75,7 +77,7 @@ Now do `git status` again to see what the status of your project is.
 It'll say that there is a new file called `README.md` and that it has changes to be committed.
 Which brings us to our next command.
 
-## 3. You being cool with it - git commit 
+## 3. You being cool with it - **git commit** 
 
 ```shell
 git commit
@@ -90,6 +92,8 @@ This will now create a commit to all the changes that were made to the files you
 The `-m` flag is the commit message, this is required, this mentions what was changed in this commit. Using `-m` is the short form writing a commit message.
 You could've also done `git commit` which would've brought up our default terminal text editor either `nano` or `vim`.
 
+## 4. The ledger - **git log**
+
 So now that your have committed your changes that means they are recorded the changes to the ledger that git uses.
 Lets see this ledger:
 ```shell
@@ -98,7 +102,7 @@ git log
 You'll see something along the lines of:
 ```shell
 commit 31e94c0c05d8ee7f488db92be4e687f3bf5d22ab (HEAD -> master)
-Author: Sonal Ranjit <sonal.ranjit3@gmail.com>
+Author: Mr Bones <meow@gmail.com>
 Date:   Mon May 7 13:19:24 2018 -0400
 
     initial commit
@@ -108,7 +112,7 @@ The log will get longer the more commits you have obviously, the things to keep 
 Okay once you have committed your changes they are recorded as a version referenced by the commit id. If you hit `git status` now then it will say working directory is clean meaning nothing has changed since the last commit.
 
 
-### Pushing it up to the cloud - git remote
+## 5. Pushing it up to the cloud - **git remote and push**
 
 So everything you have done has been done locally on your machine, lets look into how we use `git` for collaboration.
 The way we do this is we will host a copy of your local project (repository) on the web, `git` refers to this as `remote`. So we will now setup a remote location to host our project, `git` refers to this as repository (code repository).
@@ -140,6 +144,23 @@ git commit
 git push
 ```
 That is workflow for tracking your changes and committing versions.
+
+## 5. Fetch and Pull - **git fetch and pull**
+
+Fetching allows you to updated the remote repo , but you don't have these changes on your local repo.
+```shell
+git fetch
+```
+`fetch` will fetch all the changes from remote but won't apply them. When you type in fetch you should've gotten a list of all new branches.
+
+```shell
+git pull 
+```
+`pull` will pull all the changes and apply them. 
+
+
+## 6. Brancing out  - **git branch and checkout**
+
 
 Now lets get expand on this. Lets working with branches now, remember how we talked about the ledger/log git uses to keep track of changes, well if there was just one ledger it would be hard for multiple people to collaborate on the same ledger. The notion of the branch is you create a copy of a ledger from another branch record your changes on that ledger so youd don't mess up the master ledger. After when you are ready to merge your changes into the master branch, we will just transfer over your changes, in that way we won't be messing up the master branch by continously pushing changes to it. You working your branch and when ready we'll merge in the changes into master branch.
 
@@ -199,7 +220,10 @@ Phew that was big one, so that is one way to handle conflicts, this was a very s
 
 Cool lets get into more collaborative project, new git command now. Cloning an existing remote repo.
 ```shell
+
 git clone https://github.com/sonalranjit/gitgud.git sonal-gitgud
+
+
 ```
 Checkout a new branch with your name.
 Create a new file to the repo [YOURNAME].md saying "[yourname] was here" and push it to the remote.
@@ -228,10 +252,14 @@ git diff
 This will show you the difference between the working directory and your local repo. You can also use to show differences between branches.
 `git diff master...branch`
 
+## 7. Review
+
 PHEW THAT WAS A LOT, LETS REVIEW SOME STUFF
 ![](img/git-model.png)
 
 ![](img/git-model2.png)
+
+## 8. If you really screw up... 
 
 ```shell
 git reset
@@ -246,7 +274,7 @@ This one should not be used too lightly. This will undo all your changes and go 
 ```shell
 git stash
 ```
-Lets say you want to just peek into another branch, but you have some changes and don't want to commit a half ass work. We'll use stash to temporarily stash changes and go into the new branch.
+Lets say you want to just peek into another branch, but you have some changes and don't want to commit a bad work. We'll use stash to temporarily stash changes and go into the new branch.
 When you want to apply the stashed work, first lets see how many stashes we got and specify which stash to apply.
 ```shell
 git stash list
